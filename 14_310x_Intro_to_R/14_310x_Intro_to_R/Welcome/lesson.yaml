@@ -1,0 +1,43 @@
+- Class: meta
+  Course: edx-IntroToR
+  Lesson: Welcome
+  Author: Francine Loza
+  Type: Standard
+  Organization: MIT/JPAL
+  Version: 2.2.0
+
+
+
+- Class: text
+  Output: Welcome to 14.310x, and welcome to R! This short interactive course is designed 
+    to provide you with a solid introduction to R. Good Job figuring out the 
+    installation processes, these can get messy sometimes! 
+    Are you ready to get started? (If yes, hit the Enter key)
+
+- Class: text
+  Output: Great! Let's get to it. This course contains the required material which you will need to know in order
+    to be able to complete the assignments. 
+    There is another course, 14.310x Advanced R, which contains material which you may find helpful, though is not strictly
+    required knowledge for this course. 
+
+- Class: text
+  Output: The course is broken down into 9 modules, which you should have noticed at the home screen. 
+    Each of these modules is about 15-20 min long, and will cover a specific set of topics. You can find the list 
+    of topics and commands within each module on the 14.310x edx page. You are currently in the "Welcome" module.
+
+- Class: text
+  Output: To navigate your way out of a module, if you are at the R prompt (there is a > arrow at the beginning of the line), type "info()" in the command prompt
+    to get a list of navigation options. Otherwise, you can return to the R prompt (>) at any time by pressing the Esc key. 
+    Does that make sense? 
+
+- Class: text
+  Output: Awesome! Make sure you use the same name when swirl asks "What should I call you?". 
+    swirl automatically saves your progress, so you can quit and resume anytime without losing work.
+    If you use a new name, it'll get you to start from scratch. 
+
+- Class: text
+  Output: One last thing- The best way to learn how to program is to program! 
+    While these modules will help to get you started, becoming fluent in R requires pratice. 
+    We have designed 14.310x so that you will have ample opportunity to do so. We highly recommend that you do not copy and paste
+    any commands from the swirl prompts, typing them out is a much better way to learn. 
+

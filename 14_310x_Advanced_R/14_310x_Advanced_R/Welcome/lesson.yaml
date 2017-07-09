@@ -1,0 +1,12 @@
+- Class: meta
+  Course: edx-IntroToR
+  Lesson: Welcome
+  Author: Francine Loza
+  Type: Standard
+  Organization: MIT/JPAL
+  Version: 2.2.0
+
+
+
+- Class: text
+  Output: Welcome to the 14.310x Advanced R course! This short interactive course is designed to provide you with knowledge that you will find useful when working with R during this course (and beyond!). Note that while that none of the information presented here is necessary to complete the assignments for 14.310x, this course is highly recommended, particularly for those who plan to continue working with R following 14.310x. Are you ready to get started?
