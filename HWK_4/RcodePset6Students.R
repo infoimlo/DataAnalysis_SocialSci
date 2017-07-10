@@ -2,18 +2,18 @@
 #---------------------------------------------------------
 rm(list = ls())
 library("mvtnorm")
-setwd("/Users/raz/Dropbox/14.31 edX Building the Course/Problem Sets/PSET 6")
+setwd("/Users/loret/Desktop/DataSciencePrep/Data_Analysis_for_Social_Scientists/DataAnalysis_SocialSci")
 
 real_theta <- 5
 sample_size <- 100
 number_simulations <- 100000
 
-simulations1 <- matrix(runif(sample_size*XXX, max = real_theta), 
+simulations1 <- matrix(runif(sample_size*100, max = real_theta), 
                        nrow = number_simulations)
 
 
 estimator_mean <- 2*apply(simulations1, 1, mean)
-estimator_median <- 2*apply(simulations1, 1, XXX)
+estimator_median <- 2*apply(simulations1, 1, 100)
 
 p1 <- hist(estimator_mean, breaks = 100)
 p2 <- hist(estimator_median, breaks = 100)
