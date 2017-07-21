@@ -15,7 +15,7 @@ perms <- chooseMatrix(8,XXX)
 A <- matrix(c(0.462, 0.731, 0.571, 0.923, 0.333, 0.750, 0.893, 0.692), nrow=8, ncol=1, byrow=TRUE)
 treatment_avg <- (1/4)*perms%*%A
 control_avg <- (1/4)*(1-perms)%*%XXX
-test_statistic <- abs(treatment_avg-control_avg)
+test_statistic <- abs(treatment_avg-control_avg)  # For question 3 
 rownumber <- apply(apply(perms, 1, 
                          function(x) (x == c(0, 1, 0, 0, 0, 1, 1, 1))), 
                    2, sum)
