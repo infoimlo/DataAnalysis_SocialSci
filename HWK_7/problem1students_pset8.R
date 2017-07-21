@@ -11,10 +11,10 @@ setwd("C:/Users/loret/Desktop/DataSciencePrep/Data_Analysis_for_Social_Scientist
 #-------------------------------------------------
 
 #*change information here for students
-perms <- chooseMatrix(8,XXX)
+perms <- chooseMatrix(8,1)
 A <- matrix(c(0.462, 0.731, 0.571, 0.923, 0.333, 0.750, 0.893, 0.692), nrow=8, ncol=1, byrow=TRUE)
 treatment_avg <- (1/4)*perms%*%A
-control_avg <- (1/4)*(1-perms)%*%XXX
+control_avg <- (1/4)*(1-perms)%*%A
 test_statistic <- abs(treatment_avg-control_avg)  # For question 3 
 rownumber <- apply(apply(perms, 1, 
                          function(x) (x == c(0, 1, 0, 0, 0, 1, 1, 1))), 
@@ -23,7 +23,7 @@ rownumber <- (rownumber == 8)
 observed_test <- test_statistic[rownumber == TRUE]
 
 #*change information here for students
-larger_than_observed <- (test_statistic >= XXX)
+larger_than_observed <- (test_statistic >= 16)
 #numbers in which the statistic exceeds the value in the observed date
 sum(larger_than_observed)
 df <- data.frame(perms,control_avg,treatment_avg,test_statistic)
