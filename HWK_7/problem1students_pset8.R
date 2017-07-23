@@ -11,23 +11,41 @@ setwd("C:/Users/loret/Desktop/DataSciencePrep/Data_Analysis_for_Social_Scientist
 #-------------------------------------------------
 
 #*change information here for students
-perms <- chooseMatrix(8,1)  # is it chooseMatrix(8, 4)
+perms <- chooseMatrix(8,4)  # is it chooseMatrix(8, 4)
+
 A <- matrix(c(0.462, 0.731, 0.571, 0.923, 0.333, 0.750, 0.893, 0.692), nrow=8, ncol=1, byrow=TRUE)
+A
 treatment_avg <- (1/4)*perms%*%A
+treatment_avg
 control_avg <- (1/4)*(1-perms)%*%A
-test_statistic <- abs(treatment_avg-control_avg)  # For question 3 
+control_avg
+test_statistic <- abs(treatment_avg-control_avg)
+# For question 3 
+# test_statistic comes out as an 8 row, 1 col matrix with p-values (I believe)
+#Try running Fisher's exact test here:
+test_statistic
+
+
 rownumber <- apply(apply(perms, 1, 
                          function(x) (x == c(0, 1, 0, 0, 0, 1, 1, 1))), 
                    2, sum)
 rownumber <- (rownumber == 8)
 observed_test <- test_statistic[rownumber == TRUE]
-
+observed_test
 #*change information here for students
-larger_than_observed <- (test_statistic >= 16)
+larger_than_observed <- (test_statistic >= observed_test)
 #numbers in which the statistic exceeds the value in the observed date
-sum(larger_than_observed)
+sum(larger_than_observed)   # got 16!! Wooo! Right answer for question 3
 df <- data.frame(perms,control_avg,treatment_avg,test_statistic)
+df  #get a massive matrix - looks accurate 
 
+# Goal - calculate the Fisher's exact p-value
+# Under the assumption that we will have the same 
+# number of treated and control units
+fisher.test(rownumber, larger_than_observed, workspace = df, hybrid = FALSE,
+            control = list(), or = 1, alternative = "two.sided",
+            conf.int = TRUE, conf.level = 0.95,
+            simulate.p.value = FALSE, B = 2000)
 # Question 5 - 6
 #-------------------------------------------------
 simul_stat <- as.vector(NULL)
