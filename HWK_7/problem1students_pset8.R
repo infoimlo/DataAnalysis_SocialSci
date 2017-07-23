@@ -46,9 +46,11 @@ fisher.test(rownumber, larger_than_observed, workspace = df, hybrid = FALSE,
             control = list(), or = 1, alternative = "two.sided",
             conf.int = TRUE, conf.level = 0.95,
             simulate.p.value = FALSE, B = 2000)
+
 # Question 5 - 6
 #-------------------------------------------------
 simul_stat <- as.vector(NULL)
+# load data with 49 treatment schools into R
 schools <- read.csv('teachers_final.csv')
 set.seed(1001)
 for(i in 1:100) {
@@ -65,9 +67,12 @@ schools$control = 1-schools$treatment
 actual_stat <- sum(schools$treatment*schools$open)/sum(schools$treatment) - sum(schools$control*schools$open)/sum(schools$control)
 sum(abs(simul_stat) >= actual_stat)/NROW(simul_stat)
 
+#print actual stat - Fisher's p-value? - 0.1969086
+actual_stat
+
 #Question 7 - 8
 #---------------------------------------------------
-#Printing the ATE
+#Printing the ATE - # Neyman's methods of inference:  Average Treatment Effect (ATE) 
 ate <- actual_stat
 ate
 
@@ -77,8 +82,16 @@ treatment_mean <- sum(schools$treatment*schools$open)/sum(schools$treatment)
 s_c <- (1/(sum(schools$control)-1))*sum(((schools$open-control_mean)*schools$control)^2)
 s_t <- (1/(sum(schools$treatment)-1))*sum(((schools$open-treatment_mean)*schools$treatment)^2)
 
+# variance of the neyman test
 Vneyman <- (s_c/sum(schools$control) + s_t/sum(schools$treatment))
-print(sqrt(Vneyman))
+Vneyman
+
+# upper bound of standard error of 
+# point estimate using neyman's method  = 0.03055088 ~ 0.0306
+print(sqrt(Vneyman))     
+
+# t-statistic to test null hypothesis 
+# the ATE is equal to zero
 print(actual_stat/sqrt(Vneyman))
 
 print(actual_stat-1.96*sqrt(Vneyman))
