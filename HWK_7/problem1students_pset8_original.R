@@ -1,21 +1,19 @@
 # Preliminaries
 #-------------------------------------------------
-install.packages('perm')
+#install.packages('perm')
 library(perm)
 rm(list = ls())
-getwd() #get working directory - figure out what directory working out of 
-setwd("C:/Users/loret/Desktop/DataSciencePrep/Data_Analysis_for_Social_Scientists/DataAnalysis_SocialSci/HWK_7")
-
+setwd("/Users/raz/Dropbox/14.31 edX Building the Course/Problem Sets/PSET 8")
 
 # Questions 1 - 4
 #-------------------------------------------------
 
 #*change information here for students
-perms <- chooseMatrix(8,1)  # is it chooseMatrix(8, 4)
+perms <- chooseMatrix(8,XXX)
 A <- matrix(c(0.462, 0.731, 0.571, 0.923, 0.333, 0.750, 0.893, 0.692), nrow=8, ncol=1, byrow=TRUE)
 treatment_avg <- (1/4)*perms%*%A
-control_avg <- (1/4)*(1-perms)%*%A
-test_statistic <- abs(treatment_avg-control_avg)  # For question 3 
+control_avg <- (1/4)*(1-perms)%*%XXX
+test_statistic <- abs(treatment_avg-control_avg)
 rownumber <- apply(apply(perms, 1, 
                          function(x) (x == c(0, 1, 0, 0, 0, 1, 1, 1))), 
                    2, sum)
@@ -23,7 +21,7 @@ rownumber <- (rownumber == 8)
 observed_test <- test_statistic[rownumber == TRUE]
 
 #*change information here for students
-larger_than_observed <- (test_statistic >= 16)
+larger_than_observed <- (test_statistic >= XXX)
 #numbers in which the statistic exceeds the value in the observed date
 sum(larger_than_observed)
 df <- data.frame(perms,control_avg,treatment_avg,test_statistic)
