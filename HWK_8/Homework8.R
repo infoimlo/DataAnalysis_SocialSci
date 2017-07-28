@@ -22,3 +22,13 @@ res
 # Estimate liner model using OLS for when log(wagei) = beta not + beta1*black + epsiloni
 rrace = lm(formula = lwage ~ black, data = mydata)
 summary(rrace)
+
+# t-test to test null hypothesis Beta 1 = 0 
+
+# Question 10 - 11 : find mean of black
+t.test(rrace$black, mu = 0,  conf.level = 0.99 )
+
+# Question 12: run model - total experience as explanatory variables of the wage- and find Rsquared
+# value of R-Squared in this case will be Multiple R-squared:  0.267
+yrexper_wage = lm(formula = lwage ~ yrs_school + ttl_exp, data = mydata)
+summary(yrexper_wage)
