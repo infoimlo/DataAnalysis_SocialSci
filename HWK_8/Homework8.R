@@ -32,3 +32,13 @@ t.test(rrace$black, mu = 0,  conf.level = 0.99 )
 # value of R-Squared in this case will be Multiple R-squared:  0.267
 yrexper_wage = lm(formula = lwage ~ yrs_school + ttl_exp, data = mydata)
 summary(yrexper_wage)
+
+# Question 15 - estimate restricted model
+# I used this formula to generate the restricted model: I(yrs_school + 2*ttl_exp)
+
+restrict <- lm(formula = lwage ~ I(yrs_school + 2*ttl_exp), data = mydata)
+summary(restrict)
+
+# Question 16 - use anova to calculate test - for the yrexper_wage calculated in Q12 
+anova_unrest <- anova(yrexper_wage)
+anova_unrest
